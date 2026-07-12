@@ -1,5 +1,5 @@
 use anyhow::Result;
-use gart_editor::args::parse_file_path;
+use gart_common::args::parse_file_path;
 use tempfile::{NamedTempFile, TempDir};
 
 #[test]

@@ -1,10 +1,8 @@
 [package]
-name = "gart_seq_editor"
+name = "gart_common"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-gart_common = { path = "../common" }
 anyhow.workspace = true
-clap.workspace = true
 tempfile.workspace = true
