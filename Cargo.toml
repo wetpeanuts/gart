@@ -2,6 +2,7 @@
 resolver = "3"
 members = [
     "editor",
+    "seq_editor",
 ]
 
 [workspace.dependencies]

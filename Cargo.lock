@@ -142,6 +142,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "gart_seq_editor"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "clap",
+ "tempfile",
+]
+
+[[package]]
 name = "getrandom"
 version = "0.4.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
