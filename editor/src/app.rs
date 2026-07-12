@@ -1,7 +1,7 @@
 use anyhow::Result;
 use std::{fs, path::PathBuf};
 
-pub fn remove_gart_commands(path: PathBuf) -> Result<()> {
+pub fn run(path: PathBuf) -> Result<()> {
     let content = fs::read_to_string(&path)?;
     let ends_with_newline = content.ends_with('\n');
 

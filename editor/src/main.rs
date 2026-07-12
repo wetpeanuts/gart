@@ -1,11 +1,11 @@
 use anyhow::Result;
 use clap::Parser;
 use gart_editor::args::Args;
-use gart_editor::formatting::remove_gart_commands;
+use gart_editor::app::run;
 
 fn main() -> Result<()> {
     let args = Args::parse();
-    remove_gart_commands(args.file_path)?;
+    run(args.file_path)?;
 
     Ok(())
 }
