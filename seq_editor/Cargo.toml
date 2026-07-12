@@ -7,4 +7,6 @@ edition = "2024"
 gart_common = { path = "../common" }
 anyhow.workspace = true
 clap.workspace = true
+once_cell.workspace = true
+regex.workspace = true
 tempfile.workspace = true
