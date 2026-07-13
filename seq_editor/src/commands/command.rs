@@ -1,6 +1,6 @@
 use std::vec;
 
-use crate::commands::r#move::Move;
+use crate::commands::{r#move::Move, squash::Squash};
 use anyhow::{Result, anyhow, bail};
 use once_cell::sync::Lazy;
 use regex::Regex;
@@ -16,18 +16,22 @@ pub trait CommandTrait {
 #[derive(Debug, PartialEq)]
 pub enum Command {
     Move(Move),
+    Squash(Squash),
 }
 
 impl Command {
     fn apply(&self, lines: &mut Vec<String>) -> Result<()> {
         match self {
             Command::Move(cmd) => cmd.apply(lines),
+            Command::Squash(cmd) => cmd.apply(lines),
         }
     }
 
     fn parse(line_no: usize, cmd_str: &str) -> Result<Command> {
         return if Move::check_type(cmd_str) {
             Move::parse(line_no, cmd_str)
+        } else if Squash::check_type(cmd_str) {
+            Squash::parse(line_no, cmd_str)
         } else {
             bail!("Unknown command")
         };
