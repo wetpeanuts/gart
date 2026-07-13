@@ -1,1 +1,1 @@
-mod commands;
+mod seq_editor;
