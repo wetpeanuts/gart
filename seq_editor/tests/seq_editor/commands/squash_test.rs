@@ -44,10 +44,38 @@ fn parse_failure() -> Result<()> {
 
 #[test]
 fn apply_success() -> Result<()> {
+    let lines = vec![
+        "pick 0000 line1".to_string(),
+        "any   1111 line2".to_string(),
+    ];
+
+    let cases = [
+        (Squash::new(0), 0, "fixup 0000 line1".to_string()),
+        (Squash::new(1), 1, "fixup 1111 line2".to_string()),
+    ];
+
+    for (sq_cmd, line_no, expeceted_line) in cases {
+        let mut lines_copy = lines.clone();
+        let mut lines_expected = lines.clone();
+        lines_expected[line_no] = expeceted_line;
+
+        sq_cmd.apply(&mut lines_copy)?;
+        assert_eq!(lines_copy, lines_expected);
+    }
+
     Ok(())
 }
 
 #[test]
 fn apply_failure() -> Result<()> {
+    let lines = vec!["pick 0000 line1".to_string(), "any".to_string()];
+
+    let cases = [Squash::new(2)];
+
+    for sq_cmd in cases {
+        let mut lines_copy = lines.clone();
+        assert!(sq_cmd.apply(&mut lines_copy).is_err());
+    }
+
     Ok(())
 }

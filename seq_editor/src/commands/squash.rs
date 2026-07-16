@@ -29,7 +29,7 @@ impl CommandTrait for Squash {
 
         // Squash and clean second commit message
         let new_line = RE_FIRST_WORD
-            .replacen(&lines[self.line_no], 1, "fixup")
+            .replacen(&lines[self.line_no], 1, "fixup ")
             .into_owned();
         lines[self.line_no] = new_line;
 
