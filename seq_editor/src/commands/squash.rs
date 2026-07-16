@@ -3,7 +3,7 @@ use anyhow::{Result, bail};
 use once_cell::sync::Lazy;
 use regex::Regex;
 
-static RE_SQ_CMD: Lazy<Regex> = Lazy::new(|| Regex::new(r"^\s*sq\s+").unwrap());
+static RE_SQ_CMD: Lazy<Regex> = Lazy::new(|| Regex::new(r"^\s*sq(?:\s+|$)").unwrap());
 static RE_FIRST_WORD: Lazy<Regex> = Lazy::new(|| Regex::new(r"^\s*\S+\s+").unwrap());
 
 #[derive(Debug, PartialEq)]

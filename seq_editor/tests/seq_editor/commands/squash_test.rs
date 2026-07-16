@@ -3,7 +3,7 @@ use gart_seq_editor::commands::{command::Command, command::CommandTrait, squash:
 
 #[test]
 fn check_type() {
-    assert!(Squash::check_type("sq "));
+    assert!(Squash::check_type("sq"));
     assert!(Squash::check_type(" sq "));
     assert!(Squash::check_type("  sq  "));
     assert!(Squash::check_type("\tsq\t"));

@@ -1,11 +1,10 @@
-use std::vec;
-
 use crate::commands::{r#move::Move, squash::Squash};
 use anyhow::{Result, anyhow, bail};
 use once_cell::sync::Lazy;
 use regex::Regex;
+use std::vec;
 
-static RE_GART_CMD: Lazy<Regex> = Lazy::new(|| Regex::new(r"^\s*\\gart\s*").unwrap());
+static RE_GART_CMD: Lazy<Regex> = Lazy::new(|| Regex::new(r"^\s*\S+\s+\S+\s+\\gart\s+").unwrap());
 
 pub trait CommandTrait {
     fn apply(&self, lines: &mut Vec<String>) -> Result<()>;
