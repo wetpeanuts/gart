@@ -47,7 +47,7 @@ fn parse_commands_from_line(line_no: usize, line: &str) -> Result<Vec<Command>> 
                 let cmd = Command::parse(curr_line_no, cmd_str)?;
                 if let Command::Move(mv) = &cmd {
                     curr_line_no = curr_line_no
-                        .checked_add_signed(mv.line_diff)
+                        .checked_sub_signed(mv.line_diff)
                         .ok_or(anyhow!("Invalid move diff"))?
                 }
                 acc.push(cmd);
